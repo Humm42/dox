@@ -1,0 +1,13 @@
+.\" collection of Humm’s personal macros
+.
+.\" superscript
+.ds Ps \s-2\v'-0.4m'
+.ds Pe \v'+0.4m'\s+2
+.\" subscript
+.ds Bs \s-2\v'+0.4m'
+.ds Be \v'-0.4m'\s+2
+.
+.if t .ds Tx \fRT\\h'-0.1667m'\\v'0.20v'E\\v'-0.20v'\\h'-0.125m'X\fP
+.if n .ds Tx TeX
+.if t .ds Lx \fRL\\h'-0.36m'\\v'-0.15v'\s-2A\s0\\h'-0.15m'\\v'0.15v'\fP\*(Tx
+.if n .ds Lx LaTeX

@@ -1,0 +1,33 @@
+.TL
+Presentations With Troff
+.AU
+Humm
+.
+.FR
+Introduction
+.BU
+presentations are just documents
+.BU
+documents can be made with troff
+.
+.FR
+Design of the Macros
+.BU
+easy to use, non-verbose
+.BU
+customizable via registers
+.BU
+s-macros-like
+.BU
+one title page
+.BU
+many “frames”
+.
+.FR
+Usage
+.BU
+title page with .TL and .AU
+.BU
+new frame with .FR
+.BU
+bullet point with .BU and optional bullet point character argument

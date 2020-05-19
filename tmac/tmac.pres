@@ -1,0 +1,82 @@
+.\" macros for presentations
+.
+.\" register names used:
+.\" BC — (string register) bullet point character
+.\" PS — (number register) text size
+.\" VS — (number register) vertical spacing
+.\" TL — (macro) title
+.\" AU — (macro) author
+.\" FR — (macro) new frame
+.\" BU — (macro) new bullet point
+.\" NP — (internal macro) new paragraph
+.\" TB — (internal register) used in .BU
+.\" FP — (internal register) indicate if first paragraph in frame
+.
+.ds BC •	\" default bullet point character
+.nr PS 16	\" text size
+.nr VS 19	\" vertical spacing
+.
+.\" 8in * 6in
+.pl 6i
+.ll 6i
+.po 1i
+.
+.\" title
+.de TL
+.sp |2i
+.ps \\n(PS+4
+.if \n[.neat] .cl #237
+.ce
+\fB\c
+..
+.
+.\" author
+.de AU
+.sp 1c
+.ps \\n(PS+1
+.if \n[.neat] .cl #0
+.ce
+\fI\c
+..
+.
+.\" new frame
+.de FR
+.ps \\n(PS
+.vs \\n(VS
+.bp
+.po 0c
+.in 0
+.ti 0
+.ps \\n(PS+2
+.nr FP 1
+.sp |1c
+.if \n[.neat] .cl #237
+\fB\c
+..
+.
+.\" internal: new paragraph
+.de NP
+.po 1i
+.br
+.ft R
+.ps \\n(PS
+.vs \\n(VS
+.in 0
+.ie \\n(FP \{
+.	sp 1i
+.	nr FP 0
+\}
+.el .sp 0.1i
+.if \n[.neat] .cl #0
+..
+.
+.\" bullet point
+.de BU
+.NP
+.ta 0c 1c
+.ie '\\n(.$'1' .ds TB \\$1
+.el .ds TB \\*(BC
+.in 1c
+.ti 0
+\\*(TB\t\c
+..

@@ -1,0 +1,29 @@
+PIC = 9 pic
+PICFLAGS =
+REFER = neatrefer
+REFERFLAGS =
+EQN = neateqn
+EQNFLAGS =
+
+NPIC = 9 pic
+NPICFLAGS = $PICFLAGS
+NREFER = /opt/heirloom-humm/bin/refer
+NREFERFLAGS = $REFERFLAGS
+NEQN = 9 eqn
+NEQNFLAGS = $EQNFLAGS
+
+PRE = cat
+NPRE = cat
+
+TROFF = neatroff
+TRFLAGS =
+POST = neatpost
+POSTFLAGS = -pa4
+PDF = neatpdf
+PDFFLAGS = $POSTFLAGS
+
+NROFF = 9 nroff
+NRFLAGS = -e
+
+MACROS = ../tmac/tmac.hpm
+NMACROS = ../tmac/tmac.hpm

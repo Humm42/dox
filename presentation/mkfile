@@ -1,0 +1,5 @@
+<../mk/mkconfig
+
+TARG = pres.pdf
+
+<../mk/mkfile

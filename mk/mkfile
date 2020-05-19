@@ -1,0 +1,30 @@
+all:V: $TARG
+
+%.ps:D: %.s
+	<$stem.s $PRE | $TROFF $TRFLAGS -ms $MACROS - | $POST $POSTFLAGS >$target
+
+%.pdf:D: %.s
+	<$stem.s $PRE | $TROFF $TRFLAGS -ms $MACROS - | $PDF $PDFFLAGS >$target
+
+%.nr:D: %.s
+	<$stem.s $PRE | $NROFF $NRFLAGS -ms $NMACROS - >$target
+
+%.ps:D: %.tr
+	<$stem.tr $PRE | $TROFF $TRFLAGS $MACROS - | $POST $POSTFLAGS >$target
+
+%.pdf:D: %.tr
+	<$stem.tr $PRE | $TROFF $TRFLAGS $MACROS - | $PDF $PDFFLAGS >$target
+
+%.nr:D: %.tr
+	<$stem.tr $PRE | $NROFF $NRFLAGS $NMACROS - >$target
+
+%.pdf: %.prs
+	<$stem.prs $PRE | $TROFF $TRFLAGS ../tmac/tmac.pres $MACROS - | $PDF $PDFFLAGS -p2032x1524 >$target
+
+%.ps: %.prs
+	<$stem.prs $PRE | $TROFF $TRFLAGS ../tmac/tmac.pres $MACROS - | $POST $POSTFLAGS -p2032x1524 >$target
+
+clean:V:
+	rm -f $TARG
+nuke:V: clean
+	rm -rf $NUKEFILES
